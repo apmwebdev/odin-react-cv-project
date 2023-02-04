@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Header from './components/Header';
+import BasicInfo from './components/BasicInfo';
+import WorkInfo from './components/WorkInfo';
+import EducationInfo from './components/EducationInfo';
 
 class App extends Component {
   // constructor (props) { super(props); }
@@ -6,7 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        test
+        <Header />
+        <main>
+          <BasicInfo />
+          <WorkInfo />
+          <EducationInfo />
+        </main>
       </div>
     );
   }
