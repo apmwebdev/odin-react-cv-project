@@ -1,10 +1,15 @@
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      test
-    </div>
-  );
+class App extends Component {
+  // constructor (props) { super(props); }
+  
+  render() {
+    return (
+      <div className="App">
+        test
+      </div>
+    );
+  }
 }
 
 export default App;
