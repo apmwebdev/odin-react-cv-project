@@ -13,8 +13,8 @@ class App extends Component {
         <Header />
         <main>
           <BasicInfo />
-          <WorkInfo />
           <EducationInfo />
+          <WorkInfo />
         </main>
       </div>
     );

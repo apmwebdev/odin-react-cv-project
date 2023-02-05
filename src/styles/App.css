@@ -32,6 +32,10 @@ h6 {
     width: max(500px, 70vw);
 }
 
+.BasicInfo, .EducationInfo, .WorkInfo {
+    border: 1px solid #ccc;
+}
+
 .BasicInfo {
     display: flex;
     justify-content: space-between;
