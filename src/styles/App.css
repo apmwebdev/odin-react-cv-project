@@ -31,6 +31,7 @@ h6 {
     padding: 12px;
     display: grid;
     justify-content: center;
+    background-color: #ddd;
 }
 
 .App > main {
@@ -40,6 +41,7 @@ h6 {
 .BasicInfo, .EducationInfo, .WorkInfo {
     border: 1px solid #ccc;
     padding: var(--pad);
+    background-color: white;
 }
 
 .BasicInfo {
