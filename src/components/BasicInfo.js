@@ -11,13 +11,10 @@ class BasicInfo extends Component {
           <BasicInfoField value="First Name" htmlTag="h2" />
           <BasicInfoField value="Last Name" htmlTag="h2" />
         </div>
-        <div>
-          <BasicInfoField value="Address line 1" htmlTag="p" />
-          <BasicInfoField value="Address line 2" htmlTag="p" />
-          <div className="flex">
-            <BasicInfoField value="City" htmlTag="p" />
-            <BasicInfoField value="State" htmlTag="p" />
-            <BasicInfoField value="Zip" htmlTag="p" />
+        <div className="BasicInfoRight">
+          <div className="CityState">
+            <BasicInfoField value="City" htmlTag="span" />,&nbsp;
+            <BasicInfoField value="State" htmlTag="span" />
           </div>
           <BasicInfoField value="Email" htmlTag="p" />
           <BasicInfoField value="Phone" htmlTag="p" />

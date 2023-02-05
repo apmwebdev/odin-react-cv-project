@@ -18,7 +18,7 @@ class EducationForm extends Component {
       >
         <div className="educationFormRow">
           <label>
-            School name:
+            School name:&nbsp;
             <input
               type="text"
               name="schoolName"
@@ -29,7 +29,7 @@ class EducationForm extends Component {
         </div>
         <div className="educationFormRow">
           <label>
-            Degree earned:
+            Degree earned:&nbsp;
             <input
               type="text"
               name="degree"
@@ -37,8 +37,9 @@ class EducationForm extends Component {
               onChange={this.props.inputChangeHandler}
             />
           </label>
+          &nbsp;
           <label>
-            Major/Concentration:
+            Major/Concentration: &nbsp;
             <input
               type="text"
               name="major"
@@ -46,23 +47,25 @@ class EducationForm extends Component {
               onChange={this.props.inputChangeHandler}
             />
           </label>
+          &nbsp;
           <label>
-            GPA:
+            GPA: &nbsp;
             <input type="text" name="gpa" placeholder="GPA" onChange={this.props.inputChangeHandler} />
           </label>
         </div>
         <div className="educationFormRow">
           <label>
-            From:
+            From: &nbsp;
             <input type="month" name="from_date" onChange={this.props.inputChangeHandler} />
           </label>
+          &nbsp;
           <label>
-            To:
+            To: &nbsp;
             <input type="month" name="to_date" onChange={this.props.inputChangeHandler} />
           </label>
         </div>
         <div className="educationFormRow">
-          <button type="submit">Submit</button>
+          <button type="submit">Submit</button>&nbsp;
           <button type="button" onClick={this.props.hideForm}>Cancel</button>
         </div>
       </form>

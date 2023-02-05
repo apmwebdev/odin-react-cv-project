@@ -37,22 +37,25 @@ class BasicInfoField extends Component {
   render () {
     if (this.state.isEditing) {
       return (
-        <input type="text"
-               className={`BasicInfoField ${this.props.htmlTag}`}
-               placeholder={this.props.value}
-               value={this.state.text}
-               autoFocus={true}
-               onBlur={this.show}
-               onChange={this.update}
-               onKeyDown={this.showOnEnter}
-        />);
+        <div className="BasicInfoField">
+          <input type="text"
+                 className={`BasicInfoField ${this.props.htmlTag}`}
+                 placeholder={this.props.value}
+                 value={this.state.text}
+                 autoFocus={true}
+                 onBlur={this.show}
+                 onChange={this.update}
+                 onKeyDown={this.showOnEnter}
+          /></div>);
     } else {
       return (
-        <this.props.htmlTag
-          className="BasicInfoField"
-          onClick={this.edit}>{
-          (this.state.text === '') ? this.props.value : this.state.text
-        }</this.props.htmlTag>
+        <div className="BasicInfoField">
+          <this.props.htmlTag
+            className="BasicInfoField"
+            onClick={this.edit}>{
+            (this.state.text === '') ? this.props.value : this.state.text
+          }</this.props.htmlTag>
+        </div>
       );
     }
   }

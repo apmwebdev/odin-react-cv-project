@@ -79,6 +79,7 @@ class EducationInfo extends Component {
     
     return (
       <div className="EducationInfo">
+        <EducationList educationList={educationList} />
         <EducationForm
           formIsHidden={formIsHidden}
           hideForm={this.hideForm}
@@ -86,7 +87,6 @@ class EducationInfo extends Component {
           inputChangeHandler={this.inputChangeHandler}
           formSubmitHandler={this.formSubmitHandler}
         />
-        <EducationList educationList={educationList} />
         <EducationShowFormButton formIsHidden={formIsHidden} showForm={this.showForm} />
       </div>
     );

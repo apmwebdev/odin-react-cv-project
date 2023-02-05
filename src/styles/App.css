@@ -1,3 +1,8 @@
+:root {
+    --br: 12px;
+    --pad: 16px;
+}
+
 h1 {
     font-size: 48px;
 }
@@ -34,9 +39,32 @@ h6 {
 
 .BasicInfo, .EducationInfo, .WorkInfo {
     border: 1px solid #ccc;
+    padding: var(--pad);
 }
 
 .BasicInfo {
     display: flex;
     justify-content: space-between;
+    border-radius: var(--br) var(--br) 0 0;
+}
+
+.BasicInfoRight > * {
+    text-align: right;
+}
+
+.CityState > * {
+    display: inline-block;
+}
+
+.EducationForm {
+    background-color: #eee;
+    padding: var(--pad);
+}
+
+.educationFormRow {
+    margin: 12px 0;
+}
+
+input.h2 {
+    font-size: 24px;
 }
