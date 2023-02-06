@@ -9,13 +9,15 @@ class IconComponent extends Component {
     } else if (iconKey === 'Phone') {
       return 'mdi:phone';
     } else if (iconKey === 'City') {
-      return 'mdi:home';
+      return 'mdi:map-marker';
     } else if (iconKey === 'GitHub') {
       return 'mdi:github';
     } else if (iconKey === 'LinkedIn') {
       return 'mdi:linkedin';
     } else if (iconKey === 'Twitter') {
       return 'mdi:twitter';
+    } else if (iconKey === 'Website') {
+      return 'mdi:web';
     }
   }
   render () {

@@ -3,7 +3,7 @@ import IconComponent from './IconComponent';
 
 class BasicInfoField extends Component {
   constructor (props) {
-    // Expecting 'value', 'displayElem', and (optionally) 'inputType' in props
+    // Expecting 'value', 'displayElem', 'id', and (optionally) 'inputType' in props
     super(props);
     this.state = {
       text: '',
@@ -15,6 +15,9 @@ class BasicInfoField extends Component {
     this.setState({
       isEditing: false,
     });
+    if (this.props.updateParentEmail && this.state.text !== '') {
+      this.props.updateParentEmail(this.state.text);
+    }
   }
   
   edit = () => {

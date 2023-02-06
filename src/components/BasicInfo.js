@@ -4,12 +4,24 @@ import PersonalStatement from './PersonalStatement';
 import Avatar from './Avatar';
 
 class BasicInfo extends Component {
-  // constructor (props) { super(props); }
+  constructor (props) {
+    super(props);
+    this.state = ({
+      email: '',
+    })
+  }
+  
+  updateEmail = (newEmail) => {
+    this.setState({
+      email: newEmail
+    });
+  }
   
   render() {
     return (
       <div className="BasicInfo">
         <div className="basicInfoTop">
+          <Avatar email={this.state.email} />
           <div className="basicInfoLeft">
             <div className="flex">
               <BasicInfoField value="First Name" displayElem="h1" id="FirstName"/>
@@ -20,7 +32,13 @@ class BasicInfo extends Component {
           </div>
         </div>
         <div className="contactInfo">
-          <BasicInfoField value="Email" displayElem="p" inputType="email" id='Email'/>
+          <BasicInfoField
+            value="Email"
+            displayElem="p"
+            inputType="email"
+            id='Email'
+            updateParentEmail={this.updateEmail}
+          />
           <BasicInfoField value="Phone" displayElem="p" inputType="phone" id='Phone'/>
           <div className="CityState">
             <BasicInfoField value="City" displayElem="span" id='City'/>,&nbsp;
@@ -28,7 +46,7 @@ class BasicInfo extends Component {
           </div>
           <BasicInfoField value="GitHub" displayElem="p" inputType="url" id='GitHub'/>
           <BasicInfoField value="LinkedIn" displayElem="p" inputType="url" id='LinkedIn'/>
-          <BasicInfoField value="Twitter" displayElem="p" id='Twitter'/>
+          <BasicInfoField value="Website" displayElem="p" inputType="url" id='Website'/>
         </div>
       </div>
     );

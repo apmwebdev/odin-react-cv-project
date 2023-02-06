@@ -16,10 +16,6 @@ class EducationInfo extends Component {
       from_date: null,
       to_date: null,
     }
-    // this.showForm = this.showForm.bind(this);
-    // this.hideForm = this.hideForm.bind(this);
-    // this.inputChangeHandler = this.inputChangeHandler.bind(this);
-    // this.formSubmitHandler = this.formSubmitHandler.bind(this);
   }
   
   showForm = () => {
