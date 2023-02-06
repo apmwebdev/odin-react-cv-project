@@ -1,22 +1,38 @@
 :root {
     --br: 12px;
-    --pad: 16px;
+    --pad: 36px;
+    --dark-blue: hsl(208, 45%, 18%);
+    --darker-blue: hsl(206, 100%, 8%);
+    --light-text: hsla(0, 0%, 100%, 90%);
+    --gold: hsl(43, 54%, 54%);
 }
 
 h1 {
     font-size: 48px;
 }
 
+input.h1 {
+    font-size: 36px;
+}
+
 h2 {
     font-size: 36px;
 }
 
+input.h2 {
+    font-size: 24px;
+}
+
 h3 {
-    font-size: 30px;
+    font-size: 28px;
+}
+
+input.h3 {
+    font-size: 22px;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 h5 {
@@ -36,22 +52,60 @@ h6 {
 
 .App > main {
     width: max(500px, 70vw);
+    border-radius: var(--br) var(--br) 0 0;
+    border: 2px solid #ccc;
+    /*box-shadow: 0 0 4px hsla(0, 0%, 50%, 50%);*/
 }
 
-.BasicInfo, .EducationInfo, .WorkInfo {
-    border: 1px solid #ccc;
+.EducationInfo, .WorkInfo {
     padding: var(--pad);
     background-color: white;
 }
 
 .BasicInfo {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     border-radius: var(--br) var(--br) 0 0;
+    background-color: var(--dark-blue);
+    color: var(--light-text);
 }
 
-.BasicInfoRight > * {
-    text-align: right;
+.basicInfoTop {
+    display: grid;
+    padding: var(--pad);
+    gap: 30px;
+}
+
+.basicInfoLeft {
+    display: grid;
+    gap: 12px;
+    justify-content: flex-start;
+    /*width: 100%;*/
+}
+
+.Avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: var(--br);
+    border: 2px solid var(--gold);
+    display: grid;
+    place-items: center;
+}
+
+.PersonalStatement textarea {
+    font-size: 16px;
+    width: 50rem;
+    height: 7rem;
+}
+
+.contactInfo {
+    font-size: 16px;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background-color: var(--darker-blue);
+    color: var(--light-text);
+    padding: 16px var(--pad);
 }
 
 .CityState > * {
@@ -67,6 +121,12 @@ h6 {
     margin: 12px 0;
 }
 
-input.h2 {
-    font-size: 24px;
+.Occupation {
+    color: var(--gold);
+}
+
+.iconifyIcon {
+    font-size: 22px;
+    vertical-align: -4px;
+    margin-right: 10px;
 }

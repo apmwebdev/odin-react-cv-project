@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BasicInfoField from './BasicInfoField'
+import PersonalStatement from './PersonalStatement';
+import Avatar from './Avatar';
 
 class BasicInfo extends Component {
   // constructor (props) { super(props); }
@@ -7,17 +9,26 @@ class BasicInfo extends Component {
   render() {
     return (
       <div className="BasicInfo">
-        <div className="flex">
-          <BasicInfoField value="First Name" htmlTag="h2" />
-          <BasicInfoField value="Last Name" htmlTag="h2" />
-        </div>
-        <div className="BasicInfoRight">
-          <div className="CityState">
-            <BasicInfoField value="City" htmlTag="span" />,&nbsp;
-            <BasicInfoField value="State" htmlTag="span" />
+        <div className="basicInfoTop">
+          <div className="basicInfoLeft">
+            <div className="flex">
+              <BasicInfoField value="First Name" displayElem="h1" id="FirstName"/>
+              <BasicInfoField value="Last Name" displayElem="h1" id="LastName"/>
+            </div>
+            <BasicInfoField value="Occupation" displayElem="h3" id='Occupation'/>
+            <PersonalStatement />
           </div>
-          <BasicInfoField value="Email" htmlTag="p" />
-          <BasicInfoField value="Phone" htmlTag="p" />
+        </div>
+        <div className="contactInfo">
+          <BasicInfoField value="Email" displayElem="p" inputType="email" id='Email'/>
+          <BasicInfoField value="Phone" displayElem="p" inputType="phone" id='Phone'/>
+          <div className="CityState">
+            <BasicInfoField value="City" displayElem="span" id='City'/>,&nbsp;
+            <BasicInfoField value="State" displayElem="span" id='State'/>
+          </div>
+          <BasicInfoField value="GitHub" displayElem="p" inputType="url" id='GitHub'/>
+          <BasicInfoField value="LinkedIn" displayElem="p" inputType="url" id='LinkedIn'/>
+          <BasicInfoField value="Twitter" displayElem="p" id='Twitter'/>
         </div>
       </div>
     );

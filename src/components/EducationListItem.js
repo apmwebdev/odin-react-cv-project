@@ -4,12 +4,10 @@ class EducationListItem extends Component {
   render () {
     return (
       <div>
-        {this.props.item.schoolName}
-        {this.props.item.degree}
-        {this.props.item.major}
-        {this.props.item.gpa}
-        {this.props.item.from_date}
-        {this.props.item.to_date}
+        <h3>{this.props.item.degree} in {this.props.item.major}</h3>
+        <h4>{this.props.item.schoolName}</h4>
+        <em>{this.props.item.from_date} - {this.props.item.to_date}</em>
+        <p>GPA: {this.props.item.gpa}</p>
       </div>
     );
   }

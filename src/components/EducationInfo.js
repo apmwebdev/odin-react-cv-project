@@ -79,6 +79,8 @@ class EducationInfo extends Component {
     
     return (
       <div className="EducationInfo">
+        <h2>Education</h2>
+        <hr/>
         <EducationList educationList={educationList} />
         <EducationForm
           formIsHidden={formIsHidden}

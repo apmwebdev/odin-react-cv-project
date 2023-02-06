@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import IconComponent from './IconComponent';
 
 class BasicInfoField extends Component {
   constructor (props) {
-    // Expecting 'value' and 'htmlTag' in props
+    // Expecting 'value', 'displayElem', and (optionally) 'inputType' in props
     super(props);
     this.state = {
       text: '',
@@ -38,8 +39,9 @@ class BasicInfoField extends Component {
     if (this.state.isEditing) {
       return (
         <div className="BasicInfoField">
-          <input type="text"
-                 className={`BasicInfoField ${this.props.htmlTag}`}
+          <IconComponent id={this.props.id} />
+          <input type={this.props.inputType ? this.props.inputType : 'text'}
+                 className={`BasicInfoField ${this.props.displayElem} ${this.props.id}`}
                  placeholder={this.props.value}
                  value={this.state.text}
                  autoFocus={true}
@@ -50,11 +52,12 @@ class BasicInfoField extends Component {
     } else {
       return (
         <div className="BasicInfoField">
-          <this.props.htmlTag
-            className="BasicInfoField"
-            onClick={this.edit}>{
+          
+          <this.props.displayElem
+            className={`BasicInfoField ${this.props.id}`}
+            onClick={this.edit}><IconComponent id={this.props.id} />{
             (this.state.text === '') ? this.props.value : this.state.text
-          }</this.props.htmlTag>
+          }</this.props.displayElem>
         </div>
       );
     }

@@ -4,7 +4,8 @@ class WorkInfo extends Component {
   render () {
     return (
       <div className="WorkInfo">
-        work info
+        <h2>Work Experience</h2>
+        <hr />
       </div>
     );
   }
