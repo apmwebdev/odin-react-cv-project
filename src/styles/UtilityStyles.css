@@ -59,32 +59,12 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    /*font-family: 'Roboto', sans-serif;*/
     /*font-weight: bold;*/
 }
 
 :root {
     font-size: 18px;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-}
-
-input {
-    font-size: 16px;
-    width: 10em;
-    border-radius: 4px;
-    padding: 4px;
-}
-
-button {
-    font-size: 16px;
-    border-radius: 12px;
-    padding: 4px 12px;
-    border: 2px solid #ccc;
-    /*box-shadow: 1px 2px 2px hsla(0, 0%, 40%, 30%);*/
-    margin: 8px 4px;
 }
 
 /* Utility classes */
@@ -100,5 +80,5 @@ button {
 }
 
 .displayNone {
-    display: none;
+    display: none !important;
 }

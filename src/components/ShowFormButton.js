@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class EducationShowFormButton extends Component {
+class ShowFormButton extends Component {
   buttonClasses = () => {
     if (this.props.formIsHidden) {
       return 'showFormButton';
@@ -15,4 +15,4 @@ class EducationShowFormButton extends Component {
   }
 }
 
-export default EducationShowFormButton;
+export default ShowFormButton;

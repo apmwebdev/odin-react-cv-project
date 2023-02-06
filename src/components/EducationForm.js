@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class EducationForm extends Component {
   formClasses = () => {
     if (this.props.formIsHidden) {
-      return 'EducationForm displayNone';
+      return 'experienceForm displayNone';
     }
-    return 'EducationForm';
+    return 'experienceForm';
   }
   
   render () {
@@ -13,10 +13,10 @@ class EducationForm extends Component {
     return (
       <form
         className={this.formClasses()}
-        name="EducationForm"
+        name='EducationForm'
         onSubmit={this.props.formSubmitHandler}
       >
-        <div className="educationFormRow">
+        <div className="experienceFormRow">
           <label>
             School name:&nbsp;
             <input
@@ -27,7 +27,7 @@ class EducationForm extends Component {
             />
           </label>
         </div>
-        <div className="educationFormRow">
+        <div className="experienceFormRow">
           <label>
             Degree earned:&nbsp;
             <input
@@ -37,7 +37,6 @@ class EducationForm extends Component {
               onChange={this.props.inputChangeHandler}
             />
           </label>
-          &nbsp;
           <label>
             Major/Concentration: &nbsp;
             <input
@@ -47,25 +46,23 @@ class EducationForm extends Component {
               onChange={this.props.inputChangeHandler}
             />
           </label>
-          &nbsp;
           <label>
             GPA: &nbsp;
             <input type="text" name="gpa" placeholder="GPA" onChange={this.props.inputChangeHandler} />
           </label>
         </div>
-        <div className="educationFormRow">
+        <div className="experienceFormRow">
           <label>
             From: &nbsp;
             <input type="month" name="from_date" onChange={this.props.inputChangeHandler} />
           </label>
-          &nbsp;
           <label>
             To: &nbsp;
             <input type="month" name="to_date" onChange={this.props.inputChangeHandler} />
           </label>
         </div>
-        <div className="educationFormRow">
-          <button type="submit">Submit</button>&nbsp;
+        <div className="experienceFormRow">
+          <button type="submit">Submit</button>
           <button type="button" onClick={this.props.hideForm}>Cancel</button>
         </div>
       </form>

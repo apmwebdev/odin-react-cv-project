@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EducationForm from './EducationForm';
 import EducationList from './EducationList';
-import EducationShowFormButton from './EducationShowFormButton';
+import ShowFormButton from './ShowFormButton';
 
 class EducationInfo extends Component {
   constructor (props) {
@@ -32,7 +32,6 @@ class EducationInfo extends Component {
   }
   
   inputChangeHandler = (e) => {
-    console.log('input change');
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -51,7 +50,6 @@ class EducationInfo extends Component {
   }
   
   formSubmitHandler = (e) => {
-    console.log('form submit');
     e.preventDefault();
     this.setState(prevState => {
       return {
@@ -62,7 +60,7 @@ class EducationInfo extends Component {
             major: prevState.major,
             gpa: prevState.gpa,
             from_date: prevState.from_date,
-            to_date: prevState.to_date
+            to_date: prevState.to_date,
           }
         ]
       };
@@ -71,21 +69,20 @@ class EducationInfo extends Component {
   }
   
   render () {
-    const {formIsHidden, educationList, formFields} = this.state;
+    const {formIsHidden, educationList} = this.state;
     
     return (
       <div className="EducationInfo">
-        <h2>Education</h2>
+        <h2 className='sectionHeading'>Education</h2>
         <hr/>
         <EducationList educationList={educationList} />
         <EducationForm
           formIsHidden={formIsHidden}
           hideForm={this.hideForm}
-          formFields={formFields}
           inputChangeHandler={this.inputChangeHandler}
           formSubmitHandler={this.formSubmitHandler}
         />
-        <EducationShowFormButton formIsHidden={formIsHidden} showForm={this.showForm} />
+        <ShowFormButton formIsHidden={formIsHidden} showForm={this.showForm} />
       </div>
     );
   }

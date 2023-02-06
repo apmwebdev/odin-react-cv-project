@@ -1,10 +1,15 @@
 :root {
     --br: 12px;
     --pad: 36px;
-    --dark-blue: hsl(208, 45%, 18%);
-    --darker-blue: hsl(206, 100%, 8%);
+    --primary-color: hsl(208, 45%, 18%);
+    --primary-dark: hsl(206, 100%, 8%);
     --light-text: hsla(0, 0%, 100%, 90%);
-    --gold: hsl(43, 54%, 54%);
+    --secondary-color: hsl(35, 36%, 48%);
+    --secondary-dark: hsl(35, 36%, 39%);
+    --secondary-light: hsl(35, 36%, 70%);
+    --gray-bg: hsl(0, 0%, 87%);
+    --white-bg: hsl(0, 0%, 96%);
+    --gray-border: hsl(0, 0%, 80%);
 }
 
 h1 {
@@ -13,6 +18,7 @@ h1 {
 
 input.h1 {
     font-size: 36px;
+    width: 10em;
 }
 
 h2 {
@@ -43,30 +49,72 @@ h6 {
     font-size: 18px;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-color);
+}
+
+input {
+    font-size: 16px;
+    border: 2px solid var(--secondary-light);
+    border-radius: 12px;
+    padding: 5px 12px 4px;
+}
+
+input[type="email"] {
+    width: 14em;
+}
+
+input[type="url"] {
+    width: 18em;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    font-size: 16px;
+    color: var(--secondary-dark);
+    border: 2px solid var(--secondary-light);
+    background-color: var(--white-bg);
+    border-radius: 12px;
+    padding: 5px 12px 4px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--secondary-light);
+    margin-left: -4px;
+    margin-right: -2px;
+}
+
+
 .App {
     padding: 12px;
     display: grid;
     justify-content: center;
-    background-color: #ddd;
+    background-color: var(--gray-bg);
 }
 
 .App > main {
     width: max(500px, 70vw);
     border-radius: var(--br) var(--br) 0 0;
-    border: 2px solid #ccc;
+    border: 2px solid var(--gray-border);
+    background-color: var(--white-bg);
     /*box-shadow: 0 0 4px hsla(0, 0%, 50%, 50%);*/
 }
 
 .EducationInfo, .WorkInfo {
     padding: var(--pad);
-    background-color: white;
+    /*background-color: white;*/
 }
 
 .BasicInfo {
     display: grid;
     border-radius: var(--br) var(--br) 0 0;
-    background-color: var(--dark-blue);
-    color: var(--light-text);
+    /*background-color: var(--dark-blue);*/
+    /*color: var(--light-text);*/
 }
 
 .basicInfoTop {
@@ -86,8 +134,8 @@ h6 {
 .Avatar {
     width: 180px;
     height: 180px;
-    border-radius: var(--br);
-    border: 2px solid var(--gold);
+    border-radius: 1000px;
+    border: 2px solid var(--primary-color);
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -106,7 +154,7 @@ h6 {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     justify-content: space-around;
-    background-color: var(--darker-blue);
+    background-color: var(--primary-color);
     color: var(--light-text);
     padding: 16px var(--pad);
 }
@@ -127,21 +175,39 @@ h6 {
     text-align: center;
 }
 
-.EducationForm {
-    background-color: #eee;
-    padding: var(--pad);
+.sectionHeading {
+    color: var(--secondary-color);
 }
 
-.educationFormRow {
-    margin: 12px 0;
+.experienceForm {
+    background-color: var(--gray-bg);
+    padding: 24px;
+    display: grid;
+    gap: 12px;
+}
+
+.experienceFormRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.experienceListItem {
+    border-left: 2px dashed var(--gray-border);
+    padding-left: 12px;
+    margin: 12px 0 18px 0px;
 }
 
 .Occupation {
-    color: var(--gold);
+    color: var(--secondary-color);
 }
 
 .iconifyIcon {
     font-size: 22px;
     vertical-align: -4px;
     margin-right: 10px;
+}
+
+.showFormButton {
+    margin-top: 12px;
 }
