@@ -7,7 +7,7 @@ class Avatar extends Component {
     if (email) {
       const hash = createHash('md5').update(email.trim().toLowerCase()).digest('hex');
       return (
-        <img src={`https://www.gravatar.com/avatar/${hash}?d=wavatar&s=200`} alt='gravatar'/>
+        <img src={`https://www.gravatar.com/avatar/${hash}?d=robohash&s=200`} alt='gravatar'/>
       );
     } else {
       return 'Avatar';

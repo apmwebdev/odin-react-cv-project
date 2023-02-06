@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class EducationShowFormButton extends Component {
   buttonClasses = () => {
     if (this.props.formIsHidden) {
-      return 'EducationShowFormButton';
+      return 'showFormButton';
     }
-    return 'EducationShowFormButton displayNone';
+    return 'showFormButton displayNone';
   }
   
   render () {
