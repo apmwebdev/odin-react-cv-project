@@ -4,11 +4,11 @@ import uniqid from 'uniqid';
 
 class EducationList extends Component {
   getList = () => {
-    let list = 'No education information to show';
+    let list = <div className='experienceListItem'>No education information to show</div>
     if (this.props.educationList.length > 0) {
       list = this.props.educationList.map( item => {
         return (
-          <EducationListItem item={item} key={uniqid()} />
+          <EducationListItem item={item} key={uniqid()} removeItem={this.props.removeItem} />
         );
       });
     }

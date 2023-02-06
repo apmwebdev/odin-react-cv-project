@@ -85,8 +85,8 @@ button {
 hr {
     border: none;
     border-top: 2px solid var(--secondary-light);
-    margin-left: -4px;
-    margin-right: -2px;
+    /*margin-left: -4px;*/
+    /*margin-right: -2px;*/
 }
 
 
@@ -193,9 +193,17 @@ hr {
 }
 
 .experienceListItem {
-    border-left: 2px dashed var(--gray-border);
-    padding-left: 12px;
+    /*border-left: 2px dashed var(--gray-border);*/
+    /*padding-left: 12px;*/
     margin: 12px 0 18px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.experienceListItem > h3 {
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
 }
 
 .Occupation {
@@ -204,10 +212,17 @@ hr {
 
 .iconifyIcon {
     font-size: 22px;
-    vertical-align: -4px;
     margin-right: 10px;
 }
 
+.closeIcon {
+    cursor: pointer;
+}
+
+.contactInfo .iconifyIcon {
+    vertical-align: -4px;
+}
+
 .showFormButton {
-    margin-top: 12px;
+    /*margin-top: 12px;*/
 }

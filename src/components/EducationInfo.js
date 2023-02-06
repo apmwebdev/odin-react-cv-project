@@ -68,6 +68,14 @@ class EducationInfo extends Component {
     this.resetFormFieldState();
   }
   
+  removeItem = (item) => {
+    this.setState(prevState => {
+      return {
+        educationList: prevState.educationList.filter(i => i !== item)
+      };
+    });
+  }
+  
   render () {
     const {formIsHidden, educationList} = this.state;
     
@@ -75,7 +83,7 @@ class EducationInfo extends Component {
       <div className="EducationInfo">
         <h2 className='sectionHeading'>Education</h2>
         <hr/>
-        <EducationList educationList={educationList} />
+        <EducationList educationList={educationList} removeItem={this.removeItem} />
         <EducationForm
           formIsHidden={formIsHidden}
           hideForm={this.hideForm}

@@ -4,11 +4,11 @@ import uniqid from 'uniqid';
 
 class WorkList extends Component {
   getList = () => {
-    let list = 'No work experience to show';
+    let list = <div className='experienceListItem'>No work experience to show</div>
     if (this.props.workList.length > 0) {
       list = this.props.workList.map(item => {
         return (
-          <WorkListItem item={item} key={uniqid()} />
+          <WorkListItem item={item} key={uniqid()} removeItem={this.props.removeItem} />
         );
       })
     }

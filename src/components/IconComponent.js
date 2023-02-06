@@ -18,6 +18,12 @@ class IconComponent extends Component {
       return 'mdi:twitter';
     } else if (iconKey === 'Website') {
       return 'mdi:web';
+    } else if (iconKey === 'Work') {
+      return 'mdi:briefcase';
+    } else if (iconKey === 'Education') {
+      return 'mdi:school';
+    } else if (iconKey === 'Remove') {
+      return 'mdi:close-circle';
     }
   }
   render () {

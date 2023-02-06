@@ -66,13 +66,21 @@ class WorkInfo extends Component {
     this.resetFormFieldState();
   }
   
+  removeItem = (item) => {
+    this.setState(prevState => {
+      return {
+        workList: prevState.workList.filter(i => i !== item)
+      };
+    });
+  }
+  
   render () {
     const {formIsHidden, workList} = this.state;
     return (
       <div className="WorkInfo">
         <h2 className='sectionHeading'>Work Experience</h2>
         <hr />
-        <WorkList workList={workList} />
+        <WorkList workList={workList} removeItem={this.removeItem} />
         <WorkForm
           formIsHidden={formIsHidden}
           hideForm={this.hideForm}
