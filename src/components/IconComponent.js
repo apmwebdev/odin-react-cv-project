@@ -22,8 +22,6 @@ class IconComponent extends Component {
       return 'mdi:briefcase';
     } else if (iconKey === 'Education') {
       return 'mdi:school';
-    } else if (iconKey === 'Remove') {
-      return 'mdi:close-circle';
     }
   }
   render () {

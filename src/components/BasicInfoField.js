@@ -3,7 +3,6 @@ import IconComponent from './IconComponent';
 
 class BasicInfoField extends Component {
   constructor (props) {
-    // Expecting 'value', 'displayElem', 'id', and (optionally) 'inputType' in props
     super(props);
     this.state = {
       text: '',

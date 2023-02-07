@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import IconComponent from './IconComponent';
 import { Icon } from '@iconify-icon/react';
 
 class RemoveExperienceItem extends Component {

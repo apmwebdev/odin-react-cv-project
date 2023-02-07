@@ -7,7 +7,6 @@ import ShowFormButton from './ShowFormButton';
 class ExperienceSection extends Component {
   constructor (props) {
     super(props);
-    // TODO: Change 'workList' to 'experienceList', then this and EducationForm can be nearly identical
     this.state = {
       formIsHidden: true,
       experienceList: [],
