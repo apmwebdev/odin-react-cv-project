@@ -80,6 +80,7 @@ class WorkForm extends Component {
             type='text'
             name='position'
             placeholder='Position'
+            // TODO: Use optional chaining for default value and initial state
             defaultValue={this.props.item ? this.props.item.position : ''}
             onInput={this.inputChangeHandler}
           />

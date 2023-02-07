@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 class EducationForm extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      key: this.props.item ? this.props.item.key : uniqid(),
+      formId: `WorkForm${uniqid()}`,
+      degree: this.props.item?.degree,
+      major: this.props.item?.major,
+      schoolName: this.props.item?.schoolName,
+      from_date: this.props.item?.from_date,
+      to_date: this.props.item?.to_date,
+      gpa: this.props.item?.gpa,
+    }
+  }
+  
   formClasses = () => {
     if (this.props.formIsHidden) {
       return 'experienceForm displayNone';
@@ -8,13 +23,59 @@ class EducationForm extends Component {
     return 'experienceForm';
   }
   
+  inputChangeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+  
+  createItem = () => {
+    return {
+      key: this.state.key,
+      degree: this.state.degree,
+      major: this.state.major,
+      schoolName: this.state.schoolName,
+      gpa: this.state.gpa,
+      from_date: this.state.from_date,
+      to_date: this.state.to_date,
+    };
+  }
+  
+  resetToInitial = () => {
+    for (const element of document.forms[this.state.formId].elements) {
+      element.value = this.props.item ? this.props.item[element.name] : '';
+      this.inputChangeHandler({target: {
+          name: element.name, value: element.value
+        }});
+    }
+    if (!this.props.item) {
+      this.setState({key: uniqid()});
+    }
+  }
+  
+  hideForm = () => {
+    this.props.hideFormHandler();
+    this.resetToInitial();
+  }
+  
+  formSubmitHandler = (e) => {
+    e.preventDefault();
+    this.props.addOrEdit(this.createItem());
+    if (this.props.item) {
+      this.props.hideFormHandler();
+    } else {
+      this.resetToInitial();
+    }
+  }
+  
   render () {
     // school name, title of study, date of study
     return (
       <form
+        id={this.state.formId}
         className={this.formClasses()}
-        name='EducationForm'
-        onSubmit={this.props.formSubmitHandler}
+        name={this.state.formId}
+        onSubmit={this.formSubmitHandler}
       >
         <div className="experienceFormRow">
           <label htmlFor='schoolName'>School name:</label>
@@ -22,7 +83,8 @@ class EducationForm extends Component {
             type="text"
             name="schoolName"
             placeholder="School name"
-            onInput={this.props.inputChangeHandler}
+            defaultValue={this.props.item?.schoolName}
+            onInput={this.inputChangeHandler}
           />
         </div>
         <div className="experienceFormRow">
@@ -31,32 +93,43 @@ class EducationForm extends Component {
             type="text"
             name="degree"
             placeholder="Degree earned"
-            onInput={this.props.inputChangeHandler}
+            defaultValue={this.props.item?.degree}
+            onInput={this.inputChangeHandler}
           />
           <label htmlFor='major'>Major/Concentration:</label>
           <input
             type="text"
             name="major"
             placeholder="Major"
-            onInput={this.props.inputChangeHandler}
+            defaultValue={this.props.item?.major}
+            onInput={this.inputChangeHandler}
           />
           <label htmlFor='gpa'>GPA:</label>
           <input
             type="text"
             name="gpa"
             placeholder="GPA"
-            onInput={this.props.inputChangeHandler}
+            defaultValue={this.props.item?.gpa}
+            onInput={this.inputChangeHandler}
           />
         </div>
         <div className="experienceFormRow">
           <label htmlFor='from_date'>From:</label>
-          <input type="month" name="from_date" onInput={this.props.inputChangeHandler} />
+          <input
+            type="month"
+            name="from_date"
+            defaultValue={this.props.item?.from_date}
+            onInput={this.inputChangeHandler} />
           <label htmlFor='to_date'>To:</label>
-          <input type="month" name="to_date" onInput={this.props.inputChangeHandler} />
+          <input
+            type="month"
+            name="to_date"
+            defaultValue={this.props.item?.to_date}
+            onInput={this.inputChangeHandler} />
         </div>
         <div className="experienceFormRow">
           <button type="submit">Submit</button>
-          <button type="button" onClick={this.props.hideForm}>Cancel</button>
+          <button type="button" onClick={this.hideForm}>Cancel</button>
         </div>
       </form>
     );

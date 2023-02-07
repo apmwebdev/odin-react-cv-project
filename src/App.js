@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import BasicInfo from './components/BasicInfo';
-import WorkInfo from './components/WorkInfo';
+import ExperienceSection from './components/ExperienceSection';
 import EducationInfo from './components/EducationInfo';
 
 class App extends Component {
@@ -13,8 +13,8 @@ class App extends Component {
         <Header />
         <main>
           <BasicInfo />
-          <EducationInfo />
-          <WorkInfo />
+          <ExperienceSection variant='education' />
+          <ExperienceSection variant='work' />
         </main>
       </div>
     );
