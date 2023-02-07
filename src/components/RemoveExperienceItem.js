@@ -9,7 +9,7 @@ class RemoveExperienceItem extends Component {
         <Icon
           inline
           icon='mdi:close-circle'
-          className='iconifyIcon closeIcon'
+          className='iconifyIcon iconButton'
           onClick={() => this.props.removeItem(this.props.item)}
         />
       </div>

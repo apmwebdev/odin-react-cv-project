@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import WorkListItem from './WorkListItem';
-import uniqid from 'uniqid';
 
 class WorkList extends Component {
   getList = () => {
@@ -8,7 +7,14 @@ class WorkList extends Component {
     if (this.props.workList.length > 0) {
       list = this.props.workList.map(item => {
         return (
-          <WorkListItem item={item} key={uniqid()} removeItem={this.props.removeItem} />
+          <WorkListItem
+            item={item}
+            key={item.key}
+            removeItem={this.props.removeItem}
+            hideFormHandler={this.props.hideFormHandler}
+            showForm={this.props.showForm}
+            addOrEdit={this.props.addOrEdit}
+          />
         );
       })
     }

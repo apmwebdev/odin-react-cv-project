@@ -215,14 +215,11 @@ hr {
     margin-right: 10px;
 }
 
-.closeIcon {
+.iconButton {
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
 .contactInfo .iconifyIcon {
     vertical-align: -4px;
-}
-
-.showFormButton {
-    /*margin-top: 12px;*/
 }
