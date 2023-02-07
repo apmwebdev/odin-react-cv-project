@@ -21,7 +21,7 @@ class WorkForm extends Component {
             type='text'
             name='position'
             placeholder='Position'
-            onChange={this.props.inputChangeHandler}
+            onInput={this.props.inputChangeHandler}
           />
         </div>
         <div className="experienceFormRow">
@@ -30,14 +30,14 @@ class WorkForm extends Component {
             type='text'
             name='companyName'
             placeholder='Company name'
-            onChange={this.props.inputChangeHandler}
+            onInput={this.props.inputChangeHandler}
           />
         </div>
         <div className="experienceFormRow">
           <label htmlFor="from_date">From:</label>
-          <input type="month" name="from_date" onChange={this.props.inputChangeHandler} />
+          <input type="month" name="from_date" onInput={this.props.inputChangeHandler} />
           <label htmlFor="to_date">To:</label>
-          <input type="month" name="to_date" onChange={this.props.inputChangeHandler} />
+          <input type="month" name="to_date" onInput={this.props.inputChangeHandler} />
         </div>
         <div className="experienceFormRow">
           <label htmlFor="responsibilities">Responsibilities:</label>
@@ -47,7 +47,7 @@ class WorkForm extends Component {
             name="responsibilities"
             cols="50"
             rows="6"
-            onChange={this.props.inputChangeHandler}
+            onInput={this.props.inputChangeHandler}
           ></textarea>
         </div>
         <div className="experienceFormRow">
