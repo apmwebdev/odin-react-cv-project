@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/odin-react-cv-project/static/css/main.8ff8b57e.css",
+    "main.js": "/odin-react-cv-project/static/js/main.e116e295.js",
+    "index.html": "/odin-react-cv-project/index.html",
+    "main.8ff8b57e.css.map": "/odin-react-cv-project/static/css/main.8ff8b57e.css.map",
+    "main.e116e295.js.map": "/odin-react-cv-project/static/js/main.e116e295.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ff8b57e.css",
+    "static/js/main.e116e295.js"
+  ]
+}
