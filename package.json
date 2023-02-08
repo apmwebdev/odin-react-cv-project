@@ -1,5 +1,6 @@
 {
   "name": "odin-react-cv-project",
+  "homepage": "https://apmwebdev.github.io/odin-react-cv-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,7 +18,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +45,7 @@
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
+    "gh-pages": "^5.0.0",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
     "process": "^0.11.10",
