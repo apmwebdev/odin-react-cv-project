@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import uniqid from 'uniqid';
+import FormComponent from './FormComponent';
 
-class WorkForm extends Component {
+class WorkForm extends FormComponent {
   constructor (props) {
     super(props);
     this.state = {
@@ -15,19 +16,6 @@ class WorkForm extends Component {
     }
   }
   
-  formClasses = () => {
-    if (this.props.formIsHidden) {
-      return 'experienceForm displayNone';
-    }
-    return 'experienceForm';
-  }
-  
-  inputChangeHandler = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
-  
   createItem = () => {
     return {
       key: this.state.key,
@@ -37,33 +25,6 @@ class WorkForm extends Component {
       fromDate: this.state.fromDate,
       toDate: this.state.toDate,
     };
-  }
-  
-  resetToInitial = () => {
-    for (const element of document.forms[this.state.formId].elements) {
-      element.value = this.props.item ? this.props.item[element.name] : '';
-      this.inputChangeHandler({target: {
-        name: element.name, value: element.value
-      }});
-    }
-    if (!this.props.item) {
-      this.setState({key: uniqid()});
-    }
-  }
-  
-  hideForm = () => {
-    this.props.hideForm();
-    this.resetToInitial();
-  }
-  
-  formSubmitHandler = (e) => {
-    e.preventDefault();
-    this.props.addOrEdit(this.createItem());
-    if (this.props.item) {
-      this.props.hideForm();
-    } else {
-      this.resetToInitial();
-    }
   }
   
   render () {
@@ -80,7 +41,6 @@ class WorkForm extends Component {
             type='text'
             name='position'
             placeholder='Position'
-            // TODO: Use optional chaining for default value and initial state
             defaultValue={this.props.item ? this.props.item.position : ''}
             onInput={this.inputChangeHandler}
           />
