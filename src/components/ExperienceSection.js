@@ -1,103 +1,80 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ExperienceList from './ExperienceList';
 import WorkForm from './WorkForm';
 import EducationForm from './EducationForm';
 import ShowFormButton from './ShowFormButton';
 
-class ExperienceSection extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      formIsHidden: true,
-      experienceList: [],
-    }
+const ExperienceSection = (props) => {
+  const [formIsHidden, setFormIsHidden] = useState(true);
+  const [experienceList, setExperienceList] = useState([]);
+  
+  const hideForm = () => {
+    setFormIsHidden(true);
   }
   
-  // Note: Must use 'bind' before use
-  hideFormHandler = function() {
-    this.setState({
-      formIsHidden: true,
-    });
+  const showForm = () => {
+    setFormIsHidden(false);
   }
   
-  // Note: Must use 'bind' before use
-  showForm = function() {
-    this.setState({
-      formIsHidden: false,
-    });
-  }
-  
-  addOrEdit = (item) => {
-    const itemToEdit = this.state.experienceList.find((i) => i.key === item.key);
+  const addOrEdit = (item) => {
+    const itemToEdit = experienceList.find((i) => i.key === item.key);
     if (itemToEdit) {
-      this.setState((prevState) => {
-        return {
-          experienceList: prevState.experienceList.map((j) => {
+      setExperienceList((prevState) => {
+        return (
+          prevState.map((j) => {
             if (j.key === item.key) {
               return item;
             }
             return j;
           })
-        };
+        );
       });
     } else {
-      this.setState((prevState) => {
-        return {
-          experienceList: [...prevState.experienceList, item]
-        };
-      });
+      setExperienceList((prevState) => [...prevState, item]);
     }
   }
   
-  removeItem = (item) => {
-    this.setState(prevState => {
-      return {
-        experienceList: prevState.experienceList.filter(i => i !== item)
-      };
-    });
+  const removeItem = (item) => {
+    setExperienceList((prevState) => prevState.filter(i => i !== item));
   }
   
-  getVariantHeading = () => {
-    if (this.props.variant === 'work') {
+  const getVariantHeading = () => {
+    if (props.variant === 'work') {
       return 'Work Experience';
-    } else if (this.props.variant === 'education') {
+    } else if (props.variant === 'education') {
       return 'Education';
     }
   }
   
-  getVariantForm = () => {
+  const GetVariantForm = () => {
     const formProps = {
-      formIsHidden: this.state.formIsHidden,
-      hideFormHandler: this.hideFormHandler.bind(this),
-      addOrEdit: this.addOrEdit
+      formIsHidden: formIsHidden,
+      hideForm: hideForm,
+      addOrEdit: addOrEdit
     }
-    if (this.props.variant === 'work') {
+    if (props.variant === 'work') {
       return (<WorkForm {...formProps} />);
-    } else if (this.props.variant === 'education') {
+    } else if (props.variant === 'education') {
       return (<EducationForm {...formProps} />);
     }
   }
   
-  render () {
-    const {formIsHidden, experienceList} = this.state;
-    
-    return (
-      <div className='ExperienceSection'>
-        <h2 className='sectionHeading'>{this.getVariantHeading()}</h2>
-        <hr />
-        <ExperienceList
-          variant={this.props.variant}
-          experienceList={experienceList}
-          removeItem={this.removeItem}
-          hideFormHandler={this.hideFormHandler}
-          showForm={this.showForm}
-          addOrEdit={this.addOrEdit}
-        />
-        <this.getVariantForm />
-        <ShowFormButton formIsHidden={formIsHidden} showForm={this.showForm.bind(this)} />
-      </div>
-    );
-  }
+  return (
+    <div className='ExperienceSection'>
+      <h2 className='sectionHeading'>{getVariantHeading()}</h2>
+      <hr />
+      <ExperienceList
+        variant={props.variant}
+        experienceList={experienceList}
+        removeItem={removeItem}
+        hideForm={hideForm}
+        showForm={showForm}
+        addOrEdit={addOrEdit}
+      />
+      <GetVariantForm />
+      <ShowFormButton formIsHidden={formIsHidden} showForm={showForm} />
+    </div>
+  );
 }
 
 export default ExperienceSection;

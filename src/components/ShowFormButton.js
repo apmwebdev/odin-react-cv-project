@@ -1,34 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Icon } from '@iconify-icon/react';
 
-class ShowFormButton extends Component {
-  buttonClasses = () => {
-    if (this.props.formIsHidden) {
+const ShowFormButton = (props) => {
+  const buttonClasses = () => {
+    if (props.formIsHidden) {
       return 'showFormButton';
     }
     return 'showFormButton displayNone';
   }
   
-  buttonText = () => {
-    if (this.props.buttonVariant && this.props.buttonVariant === 'Edit') {
+  const buttonText = () => {
+    if (props.buttonVariant && props.buttonVariant === 'Edit') {
       return (
         <Icon
           inline
           icon='mdi:pencil-circle'
-          className={`iconifyIcon iconButton ${this.buttonClasses()}`}
-          onClick={this.props.showForm}
+          className={`iconifyIcon iconButton ${buttonClasses()}`}
+          onClick={props.showForm}
         />
       );
     } else {
       return (
-        <button className={this.buttonClasses()} onClick={this.props.showForm}>+ Add</button>
+        <button className={buttonClasses()} onClick={props.showForm}>+ Add</button>
       );
     }
   }
   
-  render () {
-    return this.buttonText();
-  }
+  return buttonText();
 }
 
 export default ShowFormButton;

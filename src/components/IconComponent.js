@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
 import { Icon } from '@iconify-icon/react';
 
-class IconComponent extends Component {
-  getIconFromId = () => {
-    const iconKey = this.props.id
-    if (iconKey === 'Email') {
+const IconComponent = (props) => {
+  const getIconFromId = () => {
+    if (props.id === 'Email') {
       return 'mdi:email';
-    } else if (iconKey === 'Phone') {
+    } else if (props.id === 'Phone') {
       return 'mdi:phone';
-    } else if (iconKey === 'City') {
+    } else if (props.id === 'City') {
       return 'mdi:map-marker';
-    } else if (iconKey === 'GitHub') {
+    } else if (props.id === 'GitHub') {
       return 'mdi:github';
-    } else if (iconKey === 'LinkedIn') {
+    } else if (props.id === 'LinkedIn') {
       return 'mdi:linkedin';
-    } else if (iconKey === 'Twitter') {
+    } else if (props.id === 'Twitter') {
       return 'mdi:twitter';
-    } else if (iconKey === 'Website') {
+    } else if (props.id === 'Website') {
       return 'mdi:web';
-    } else if (iconKey === 'Work') {
+    } else if (props.id === 'Work') {
       return 'mdi:briefcase';
-    } else if (iconKey === 'Education') {
+    } else if (props.id === 'Education') {
       return 'mdi:school';
     }
   }
-  render () {
-    if (this.getIconFromId()) {
-      return (
-        <Icon inline icon={this.getIconFromId()} className='iconifyIcon'/>
-      );
-    } else {
-      return null;
-    }
+  
+  if (getIconFromId()) {
+    return (
+      <Icon inline icon={getIconFromId()} className='iconifyIcon'/>
+    );
+  } else {
+    return null;
   }
 }
 

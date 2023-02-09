@@ -1,36 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import WorkListItem from './WorkListItem';
 import EducationListItem from './EducationListItem';
 
-class ExperienceList extends Component {
-  getList = () => {
+const ExperienceList = (props) => {
+  const getList = () => {
     let list = <div className='experienceListItem'>Nothing to show</div>
-    if (this.props.experienceList.length <= 0) {
+    if (props.experienceList.length <= 0) {
       return list;
     }
-    if (this.props.variant === 'work') {
-      list = this.props.experienceList.map(item => {
+    if (props.variant === 'work') {
+      list = props.experienceList.map(item => {
         return (
           <WorkListItem
             item={item}
             key={item.key}
-            removeItem={this.props.removeItem}
-            hideFormHandler={this.props.hideFormHandler}
-            showForm={this.props.showForm}
-            addOrEdit={this.props.addOrEdit}
+            removeItem={props.removeItem}
+            addOrEdit={props.addOrEdit}
           />
         );
       });
-    } else if (this.props.variant === 'education') {
-      list = this.props.experienceList.map(item => {
+    } else if (props.variant === 'education') {
+      list = props.experienceList.map(item => {
         return (
           <EducationListItem
             item={item}
             key={item.key}
-            removeItem={this.props.removeItem}
-            hideFormHandler={this.props.hideFormHandler}
-            showForm={this.props.showForm}
-            addOrEdit={this.props.addOrEdit}
+            removeItem={props.removeItem}
+            addOrEdit={props.addOrEdit}
           />
         );
       });
@@ -40,13 +36,11 @@ class ExperienceList extends Component {
     return list;
   }
   
-  render () {
-    return (
-      <div className="ExperienceList">
-        {this.getList()}
-      </div>
-    );
-  }
+  return (
+    <div className="ExperienceList">
+      {getList()}
+    </div>
+  );
 }
 
 export default ExperienceList;

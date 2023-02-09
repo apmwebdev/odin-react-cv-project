@@ -52,7 +52,7 @@ class WorkForm extends Component {
   }
   
   hideForm = () => {
-    this.props.hideFormHandler();
+    this.props.hideForm();
     this.resetToInitial();
   }
   
@@ -60,7 +60,7 @@ class WorkForm extends Component {
     e.preventDefault();
     this.props.addOrEdit(this.createItem());
     if (this.props.item) {
-      this.props.hideFormHandler();
+      this.props.hideForm();
     } else {
       this.resetToInitial();
     }

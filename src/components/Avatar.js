@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createHash } from 'crypto-browserify';
 
-class Avatar extends Component {
+const Avatar = (props) => {
   
-  getGravatar = (email) => {
+  const getGravatar = (email) => {
     if (email) {
       const hash = createHash('md5').update(email.trim().toLowerCase()).digest('hex');
       return (
@@ -14,13 +14,11 @@ class Avatar extends Component {
     }
   }
   
-  render () {
-    return (
-      <div className="Avatar">
-        {this.getGravatar(this.props.email)}
-      </div>
-    );
-  }
+  return (
+    <div className="Avatar">
+      {getGravatar(props.email)}
+    </div>
+  );
 }
 
 export default Avatar;

@@ -54,7 +54,7 @@ class EducationForm extends Component {
   }
   
   hideForm = () => {
-    this.props.hideFormHandler();
+    this.props.hideForm();
     this.resetToInitial();
   }
   
@@ -62,14 +62,13 @@ class EducationForm extends Component {
     e.preventDefault();
     this.props.addOrEdit(this.createItem());
     if (this.props.item) {
-      this.props.hideFormHandler();
+      this.props.hideForm();
     } else {
       this.resetToInitial();
     }
   }
   
   render () {
-    // school name, title of study, date of study
     return (
       <form
         id={this.state.formId}

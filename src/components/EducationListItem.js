@@ -1,53 +1,52 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import IconComponent from './IconComponent';
 import RemoveExperienceItem from './RemoveExperienceItem';
 import EducationForm from './EducationForm';
 import ShowFormButton from './ShowFormButton';
 
-class EducationListItem extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      formIsHidden: true,
-      hideFormHandler: this.props.hideFormHandler.bind(this),
-      showForm: this.props.showForm.bind(this),
-    }
+const EducationListItem = (props) => {
+  const [formIsHidden, setFormIsHidden] = useState(true);
+  
+  const showForm = () => {
+    setFormIsHidden(false);
   }
   
-  render () {
-    if (this.state.formIsHidden) {
-      return (
-        <div className='experienceListItem'>
-          <div>
-            <h3><IconComponent id='Education'/>{this.props.item.degree} in {this.props.item.major}
-            </h3>
-            <h4>{this.props.item.schoolName}</h4>
-            <em>{this.props.item.from_date} - {this.props.item.to_date}</em>
-            <p>GPA: {this.props.item.gpa}</p>
-          </div>
-          <div>
-            <RemoveExperienceItem item={this.props.item} removeItem={this.props.removeItem}/>
-            <ShowFormButton
-              formIsHidden={this.state.formIsHidden}
-              buttonVariant='Edit'
-              showForm={this.state.showForm}
-            />
-          </div>
+  const hideForm = () => {
+    setFormIsHidden(true);
+  }
+  
+  if (formIsHidden) {
+    return (
+      <div className='experienceListItem'>
+        <div>
+          <h3><IconComponent id='Education'/>{props.item.degree} in {props.item.major}
+          </h3>
+          <h4>{props.item.schoolName}</h4>
+          <em>{props.item.from_date} - {props.item.to_date}</em>
+          <p>GPA: {props.item.gpa}</p>
         </div>
-      );
-    } else {
-      return (
-        <div className='experienceListItem'>
-          <EducationForm
-            item={this.props.item}
-            formIsHidden={this.state.formIsHidden}
-            hideFormHandler={this.state.hideFormHandler}
-            addOrEdit={this.props.addOrEdit}
+        <div>
+          <RemoveExperienceItem item={props.item} removeItem={props.removeItem}/>
+          <ShowFormButton
+            formIsHidden={formIsHidden}
+            buttonVariant='Edit'
+            showForm={showForm}
           />
-          <RemoveExperienceItem item={this.props.item} removeItem={this.props.removeItem}/>
         </div>
-      );
-    }
+      </div>
+    );
+  } else {
+    return (
+      <div className='experienceListItem'>
+        <EducationForm
+          item={props.item}
+          formIsHidden={formIsHidden}
+          hideForm={hideForm}
+          addOrEdit={props.addOrEdit}
+        />
+        <RemoveExperienceItem item={props.item} removeItem={props.removeItem}/>
+      </div>
+    );
   }
 }
 
