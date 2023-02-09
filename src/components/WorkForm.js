@@ -9,8 +9,8 @@ class WorkForm extends Component {
       formId: `WorkForm${uniqid()}`,
       position: this.props.item ? this.props.item.position : null,
       companyName: this.props.item ? this.props.item.companyName : null,
-      from_date: this.props.item ? this.props.item.from_date : null,
-      to_date: this.props.item ? this.props.item.to_date : null,
+      fromDate: this.props.item ? this.props.item.fromDate : null,
+      toDate: this.props.item ? this.props.item.toDate : null,
       responsibilities: this.props.item ? this.props.item.responsibilities : null,
     }
   }
@@ -34,8 +34,8 @@ class WorkForm extends Component {
       companyName: this.state.companyName,
       position: this.state.position,
       responsibilities: this.state.responsibilities,
-      from_date: this.state.from_date,
-      to_date: this.state.to_date,
+      fromDate: this.state.fromDate,
+      toDate: this.state.toDate,
     };
   }
   
@@ -96,17 +96,17 @@ class WorkForm extends Component {
           />
         </div>
         <div className="experienceFormRow">
-          <label htmlFor="from_date">From:</label>
+          <label htmlFor="fromDate">From:</label>
           <input
             type="month"
-            name="from_date"
-            defaultValue={this.props.item ? this.props.item.from_date : ''}
+            name="fromDate"
+            defaultValue={this.props.item ? this.props.item.fromDate : ''}
             onInput={this.inputChangeHandler} />
-          <label htmlFor="to_date">To:</label>
+          <label htmlFor="toDate">To:</label>
           <input
             type="month"
-            name="to_date"
-            defaultValue={this.props.item ? this.props.item.to_date : ''}
+            name="toDate"
+            defaultValue={this.props.item ? this.props.item.toDate : ''}
             onInput={this.inputChangeHandler} />
         </div>
         <div className="experienceFormRow">

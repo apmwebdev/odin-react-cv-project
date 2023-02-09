@@ -10,8 +10,8 @@ class EducationForm extends Component {
       degree: this.props.item?.degree,
       major: this.props.item?.major,
       schoolName: this.props.item?.schoolName,
-      from_date: this.props.item?.from_date,
-      to_date: this.props.item?.to_date,
+      fromDate: this.props.item?.fromDate,
+      toDate: this.props.item?.toDate,
       gpa: this.props.item?.gpa,
     }
   }
@@ -36,8 +36,8 @@ class EducationForm extends Component {
       major: this.state.major,
       schoolName: this.state.schoolName,
       gpa: this.state.gpa,
-      from_date: this.state.from_date,
-      to_date: this.state.to_date,
+      fromDate: this.state.fromDate,
+      toDate: this.state.toDate,
     };
   }
   
@@ -113,17 +113,17 @@ class EducationForm extends Component {
           />
         </div>
         <div className="experienceFormRow">
-          <label htmlFor='from_date'>From:</label>
+          <label htmlFor='fromDate'>From:</label>
           <input
             type="month"
-            name="from_date"
-            defaultValue={this.props.item?.from_date}
+            name="fromDate"
+            defaultValue={this.props.item?.fromDate}
             onInput={this.inputChangeHandler} />
-          <label htmlFor='to_date'>To:</label>
+          <label htmlFor='toDate'>To:</label>
           <input
             type="month"
-            name="to_date"
-            defaultValue={this.props.item?.to_date}
+            name="toDate"
+            defaultValue={this.props.item?.toDate}
             onInput={this.inputChangeHandler} />
         </div>
         <div className="experienceFormRow">

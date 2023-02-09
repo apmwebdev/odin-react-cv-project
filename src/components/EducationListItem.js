@@ -22,7 +22,7 @@ const EducationListItem = (props) => {
           <h3><IconComponent id='Education'/>{props.item.degree} in {props.item.major}
           </h3>
           <h4>{props.item.schoolName}</h4>
-          <em>{props.item.from_date} - {props.item.to_date}</em>
+          <em>{props.item.fromDate} - {props.item.toDate}</em>
           <p>GPA: {props.item.gpa}</p>
         </div>
         <div>

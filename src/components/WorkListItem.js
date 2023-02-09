@@ -21,7 +21,7 @@ const WorkListItem = (props) => {
         <div>
           <h3><IconComponent id='Work'/>{props.item.position}</h3>
           <h4>{props.item.companyName}</h4>
-          <em>{props.item.from_date} - {props.item.to_date}</em>
+          <em>{props.item.fromDate} - {props.item.toDate}</em>
           <p>{props.item.responsibilities}</p>
         </div>
         <div>
